@@ -1,0 +1,54 @@
+<script type="text/javascript">
+  RED.nodes.registerType('loopback_change_stream', {
+    category: 'lb_Nodes',
+    color: '#a6bbcf',
+    defaults: {
+      name: {
+        value: "Live server"
+      },
+      url: {
+        value: ""
+      },
+      model: {
+        value: ""
+      },
+       changed_on: {
+        value: "all"
+      }
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "file.png",
+    label: function () {
+      return this.name || "loopback_change_stream";
+    }
+  });
+
+</script>
+
+<script type="text/x-red" data-template-name="loopback_change_stream">
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name : </label>
+    <input type="text" id="node-input-name" placeholder="Name"><br /><br />
+    <label for="node-input-url"><i class="icon-tag"></i> URL : </label>
+    <input type="text" id="node-input-url" placeholder="url"><br /><br />
+    <label for="node-input-model"><i class="icon-tag"></i> Model : </label>
+    <input type="text" id="node-input-model" placeholder="model"><br /><br />
+    <label for="node-input-changed_on"><i class="icon-tag"></i> Change On: </label>
+    <select id="node-input-changed_on" >
+            <option value="create">create</option>
+            <option value="update">update</option>
+            <option value="delete">delete</option>
+            <option value="all">all</option>
+    </select>
+
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="loopback_change_stream">
+  <p>loopback-change stream is used in it to view server events live.<br />
+  pass url,model,changeOn and view live data. <br />
+  url = url on which server listen for change-stream.<br />
+  model = model name on which change stream performed.<br />
+  changeOn = on ehich action you want to perform next action e.g. when new data set created or when an old dataset is updated. etc<br /></p>
+</script>

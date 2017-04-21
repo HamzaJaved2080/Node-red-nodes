@@ -1,0 +1,49 @@
+     <script type="text/javascript">
+    RED.nodes.registerType('compare_to',{
+        category: 'lb_Nodes',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:"Compare to"},
+            compare: {value:""},
+            operator: {value:""},
+            selector:{value : ""}
+        },
+        inputs:1,
+        outputs:2,
+        icon: "file.png",
+        label: function() {
+            return this.name||"compare_to";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="compare_to">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="name"> <br />
+        <label for="node-input-compare"><i class="icon-tag"></i> Compare to :</label>
+        <input type="text" id="node-input-compare" placeholder="compare to"> <br />
+        <label for="node-input-operator"><i class="icon-tag"></i> Operator : </label>
+        <input type="text" id="node-input-operator" placeholder="operator"> <br />
+        <label for="node-input-selector"><i class="icon-tag"></i> Selector : </label>
+        <input type="text" id="node-input-selector" placeholder="selector"> <br />
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="compare_to">
+    <p>
+        Compare two values by submitting one value in form input and other through flow and a comparison operator for performing operation on values.<br />
+        value in compare is of any type (string, number, decimal, boolean, object).<br />
+        if the value is object then use selector property to select and compare object property to other. if it is not of object type leave it empty.<br />
+        Following Comparison operators are allowed ( == , != , < , > , <= , >= ).<br />
+        e.g. <br />
+            var compare = value comes from flow through wire;<br />
+            var compareTo = value from form;<br />
+            var operator = "==";<br />
+            if (compare == compareTo){<br />
+                return "matched";<br />
+            }<br />
+            else<br />
+             return "not mathced";<br />
+    </p>
+</script>

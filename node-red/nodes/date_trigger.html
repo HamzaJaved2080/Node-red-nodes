@@ -1,0 +1,42 @@
+<script type="text/javascript">
+  RED.nodes.registerType('date_trigger', {
+    category: 'lb_Nodes',
+    color: '#a6bbcf',
+    defaults: {
+      name: {value: "Date Triggers"},
+      from_date: {value: ""},
+      hour:{value:""},
+      minute:{value:""}
+    },
+    inputs:1,
+    outputs:2,
+    icon: "file.png",
+    label: function () {
+      return this.name || "Date trigger";
+    }
+  });
+
+</script>
+
+<script type="text/x-red" data-template-name="date_trigger">
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name :</label>
+    <input type="text" id="node-input-name" placeholder="Name"> <br /><br />
+
+    <label for="node-input-from_date"><i class="icon-tag"></i> Date  :</label>
+    <input type="date" id="node-input-from_date" placeholder="mm/dd/yyyy"><br /><br />
+
+    <label for="node-input-hour"><i class="icon-tag"></i> Hour  :</label>
+    <input type="number" min="0" max="24" id="node-input-hour" placeholder="Hour"><br /><br />
+
+    <label for="node-input-minute"><i class="icon-tag"></i> Minute  :</label>
+    <input type="number" min="0" max="60" id="node-input-minute" placeholder="Minute"><br />
+
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="date_trigger">
+  <p>
+    .<br />
+  </p>
+</script>
